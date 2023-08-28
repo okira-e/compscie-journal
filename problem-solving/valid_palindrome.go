@@ -1,3 +1,7 @@
+package main
+
+import "strings"
+
 func isValid(ascii uint8) bool {
 	var isSmallLetter = func() bool {
 		return ascii >= 65 && ascii <= 90

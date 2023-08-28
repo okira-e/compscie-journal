@@ -1,3 +1,5 @@
+package main
+
 func topKFrequent(nums []int, k int) []int {
 	// -- Populate a map with every number and its occurrence.
 	frequencyMap := map[int]int{}

@@ -1,3 +1,5 @@
+package main
+
 func containsDuplicate(nums []int) bool {
 	var myMap = make(map[int]bool)
 
