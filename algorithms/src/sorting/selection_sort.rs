@@ -1,5 +1,5 @@
 #[allow(dead_code)]
-pub fn selection_sort(arr: &mut [i32]) {
+pub fn selection_sort<T: PartialOrd>(arr: &mut [T]) {
     let len = arr.len();
 
     for i in 0..len {

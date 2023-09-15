@@ -1,5 +1,5 @@
 #[allow(dead_code)]
-pub fn quick_sort(arr: &mut [i32]) {
+pub fn quick_sort<T: PartialOrd + Clone>(arr: &mut [T]) {
     if arr.len() <= 1 {
         return;
     }
@@ -10,7 +10,7 @@ pub fn quick_sort(arr: &mut [i32]) {
     quick_sort(&mut arr[pivot_index + 1..]);
 }
 
-fn partition(arr: &mut [i32]) -> usize {
+fn partition<T: PartialOrd + Clone>(arr: &mut [T]) -> usize {
     let pivot = arr[arr.len() - 1].clone();
     let mut i = 0;
 

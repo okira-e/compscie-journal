@@ -1,5 +1,5 @@
 #[allow(dead_code)]
-pub fn merge_sort(arr: &mut [i32]) {
+pub fn merge_sort<T: PartialOrd + Clone>(arr: &mut [T]) {
     if arr.len() <= 1 {
         return;
     }
@@ -12,7 +12,7 @@ pub fn merge_sort(arr: &mut [i32]) {
     merge(arr, mid);
 }
 
-fn merge(arr: &mut [i32], mid: usize) {
+fn merge<T: PartialOrd + Clone>(arr: &mut [T], mid: usize) {
     let left = arr[0..mid].to_vec();
     let right = arr[mid..].to_vec();
 
@@ -22,23 +22,23 @@ fn merge(arr: &mut [i32], mid: usize) {
 
     while i < left.len() && j < right.len() {
         if left[i] <= right[j] {
-            arr[k] = left[i];
+            arr[k] = left[i].clone();
             i += 1;
         } else {
-            arr[k] = right[j];
+            arr[k] = right[j].clone();
             j += 1;
         }
         k += 1;
     }
 
     while i < left.len() {
-        arr[k] = left[i];
+        arr[k] = left[i].clone();
         i += 1;
         k += 1;
     }
 
     while j < right.len() {
-        arr[k] = right[j];
+        arr[k] = right[j].clone();
         j += 1;
         k += 1;
     }
